@@ -1,0 +1,10 @@
+package biblioteca.tests;
+
+public class EditoraTest {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}

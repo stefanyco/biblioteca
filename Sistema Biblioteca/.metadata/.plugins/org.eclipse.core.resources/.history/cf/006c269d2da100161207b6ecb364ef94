@@ -1,0 +1,13 @@
+package biblioteca.tests;
+
+import biblioteca.entities.Editora;
+
+public class EditoraTest {
+
+	public static void main(String[] args) {
+		Editora ed = new Editora();
+		ed.setNome("TESTE 01");
+
+	}
+
+}

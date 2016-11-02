@@ -1,0 +1,58 @@
+package biblioteca.dao;
+
+import java.sql.SQLException;
+import java.util.List;
+import java.sql.Connection;
+
+import biblioteca.config.Factory;
+import biblioteca.entities.Editora;
+
+public class EditoraDAO implements GenericDAO<Editora> {
+	
+	Connection connection;
+	
+	public EditoraDAO() throws Exception {
+		this.connection = new Factory().getConnection();
+	}
+
+	@Override
+	public void inserir(Editora editora) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+	@Override
+	public void alterar(Editora editora) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+	@Override
+	public void deletar(Integer id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+	@Override
+	public List<Editora> listarTodos() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	@Override
+	public Editora buscarPorId(Integer id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
+
+}
