@@ -2,29 +2,31 @@
 -- 11/02/16 15:09:32
 -- Model: New Model    Version: 1.0
 -- MySQL Workbench Forward Engineering
--- Author: Stefany Souza
+-- Author: Stefany Souza & Eveline Renata
 
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema DB_BIBLIOTECA
 -- -----------------------------------------------------
-DROP SCHEMA IF EXISTS `mydb` ;
+
+DROP SCHEMA IF EXISTS `DB_BIBLIOTECA` ;
+
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema DB_BIBLIOTECA
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
-USE `mydb` ;
+CREATE SCHEMA IF NOT EXISTS `DB_BIBLIOTECA` DEFAULT CHARACTER SET utf8 ;
+USE `DB_BIBLIOTECA` ;
 
 -- -----------------------------------------------------
--- Table `mydb`.`tb_editora`
+-- Table `DB_BIBLIOTECA`.`tb_editora`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`tb_editora` ;
+DROP TABLE IF EXISTS `DB_BIBLIOTECA`.`tb_editora` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`tb_editora` (
+CREATE TABLE IF NOT EXISTS `DB_BIBLIOTECA`.`tb_editora` (
   `id_editora` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(50) NOT NULL,
   PRIMARY KEY (`id_editora`))
@@ -32,11 +34,11 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`tb_autor`
+-- Table `DB_BIBLIOTECA`.`tb_autor`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`tb_autor` ;
+DROP TABLE IF EXISTS `DB_BIBLIOTECA`.`tb_autor` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`tb_autor` (
+CREATE TABLE IF NOT EXISTS `DB_BIBLIOTECA`.`tb_autor` (
   `id_autor` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(50) NOT NULL,
   `sobrenome` VARCHAR(50) NULL,
@@ -45,11 +47,11 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`tb_categoria`
+-- Table `DB_BIBLIOTECA`.`tb_categoria`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`tb_categoria` ;
+DROP TABLE IF EXISTS `DB_BIBLIOTECA`.`tb_categoria` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`tb_categoria` (
+CREATE TABLE IF NOT EXISTS `DB_BIBLIOTECA`.`tb_categoria` (
   `id_categoria` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(50) NOT NULL,
   PRIMARY KEY (`id_categoria`))
@@ -57,11 +59,11 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`tb_livro`
+-- Table `DB_BIBLIOTECA`.`tb_livro`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`tb_livro` ;
+DROP TABLE IF EXISTS `DB_BIBLIOTECA`.`tb_livro` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`tb_livro` (
+CREATE TABLE IF NOT EXISTS `DB_BIBLIOTECA`.`tb_livro` (
   `id_livro` INT NOT NULL AUTO_INCREMENT,
   `id_editora` INT NOT NULL,
   `id_autor` INT NOT NULL,
@@ -77,28 +79,28 @@ CREATE TABLE IF NOT EXISTS `mydb`.`tb_livro` (
   INDEX `fk_categoria_idx` (`id_categoria` ASC),
   CONSTRAINT `fk_editora`
     FOREIGN KEY (`id_editora`)
-    REFERENCES `mydb`.`tb_editora` (`id_editora`)
+    REFERENCES `DB_BIBLIOTECA`.`tb_editora` (`id_editora`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_autor`
     FOREIGN KEY (`id_autor`)
-    REFERENCES `mydb`.`tb_autor` (`id_autor`)
+    REFERENCES `DB_BIBLIOTECA`.`tb_autor` (`id_autor`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_categoria`
     FOREIGN KEY (`id_categoria`)
-    REFERENCES `mydb`.`tb_categoria` (`id_categoria`)
+    REFERENCES `DB_BIBLIOTECA`.`tb_categoria` (`id_categoria`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`tb_usuario`
+-- Table `DB_BIBLIOTECA`.`tb_usuario`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`tb_usuario` ;
+DROP TABLE IF EXISTS `DB_BIBLIOTECA`.`tb_usuario` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`tb_usuario` (
+CREATE TABLE IF NOT EXISTS `DB_BIBLIOTECA`.`tb_usuario` (
   `id_usuario` INT NOT NULL AUTO_INCREMENT,
   `ra` INT NULL,
   `cpf` VARCHAR(15) NULL,
@@ -113,11 +115,11 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`tb_emprestimo`
+-- Table `DB_BIBLIOTECA`.`tb_emprestimo`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`tb_emprestimo` ;
+DROP TABLE IF EXISTS `DB_BIBLIOTECA`.`tb_emprestimo` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`tb_emprestimo` (
+CREATE TABLE IF NOT EXISTS `DB_BIBLIOTECA`.`tb_emprestimo` (
   `id_emprestimo` INT NOT NULL AUTO_INCREMENT,
   `id_usuario` INT NOT NULL,
   `id_livro` INT NOT NULL,
@@ -128,12 +130,12 @@ CREATE TABLE IF NOT EXISTS `mydb`.`tb_emprestimo` (
   INDEX `fk_livro_idx` (`id_livro` ASC),
   CONSTRAINT `fk_usuario`
     FOREIGN KEY (`id_usuario`)
-    REFERENCES `mydb`.`tb_usuario` (`id_usuario`)
+    REFERENCES `DB_BIBLIOTECA`.`tb_usuario` (`id_usuario`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_livro`
     FOREIGN KEY (`id_livro`)
-    REFERENCES `mydb`.`tb_livro` (`id_livro`)
+    REFERENCES `DB_BIBLIOTECA`.`tb_livro` (`id_livro`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
