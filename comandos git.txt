@@ -1,0 +1,7 @@
+git init - primeira vez que vou utilizar a pasta
+git remote add origem "url repositorio" https://github.com/stefanyco/biblioteca.git
+git pull origem master - baixar as alterações do repositorio
+git add . - adiciona tudo que tem na pasta
+git commit -m "primeiro commit" - prepara para fazer o push ()
+git push origem master
+git status
