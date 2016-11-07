@@ -1,0 +1,3 @@
+ALTER TABLE `db_biblioteca`.`tb_livro` 
+ADD COLUMN `especial` VARCHAR(3) NOT NULL AFTER `sinopse`,
+ADD COLUMN `tipo` VARCHAR(10) NOT NULL AFTER `especial`;

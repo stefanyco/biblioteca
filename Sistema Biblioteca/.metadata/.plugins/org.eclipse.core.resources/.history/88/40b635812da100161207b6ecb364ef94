@@ -1,0 +1,10 @@
+package biblioteca.tests;
+
+public class CategoriaTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

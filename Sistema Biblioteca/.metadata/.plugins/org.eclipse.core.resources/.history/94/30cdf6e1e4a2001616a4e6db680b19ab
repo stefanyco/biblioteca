@@ -1,0 +1,71 @@
+package biblioteca.entities;
+
+import java.sql.Date;
+
+public class Emprestimo {
+
+	private Integer idEmprestimo;
+	private Usuario usuario
+	private Integer idLivro;
+	private Date dataEmprestimo;
+	private Date dataDevolucao;
+
+	
+	public Emprestimo() {}
+
+	public Emprestimo(Integer idEmprestimo, Integer idUsuario, Integer idLivro, Date dataEmprestimo, Date dataDevolucao){
+		this.idEmprestimo = idEmprestimo;
+		this.idUsuario = idUsuario;
+		this.idLivro = idLivro;
+		this.dataEmprestimo = dataEmprestimo;
+		this.dataDevolucao = dataDevolucao;
+		}
+
+	public Integer getIdEmprestimo() {
+		return idEmprestimo;
+	}
+
+	public void setIdEmprestimo(Integer idEmprestimo) {
+		this.idEmprestimo = idEmprestimo;
+	}
+
+	public Integer getIdUsuario() {
+		return idUsuario;
+	}
+
+	public void setIdUsuario(Integer idUsuario) {
+		this.idUsuario = idUsuario;
+	}
+
+	public Integer getIdLivro() {
+		return idLivro;
+	}
+
+	public void setIdLivro(Integer idLivro) {
+		this.idLivro = idLivro;
+	}
+
+	public Date getDataEmprestimo() {
+		return dataEmprestimo;
+	}
+
+	public void setDataEmprestimo(Date dataEmprestimo) {
+		this.dataEmprestimo = dataEmprestimo;
+	}
+
+	public Date getDataDevolucao() {
+		return dataDevolucao;
+	}
+
+	public void setDataDevolucao(Date dataDevolucao) {
+		this.dataDevolucao = dataDevolucao;
+	}
+	
+	@Override
+	public String toString() {
+		return "Emprestimo [idEmprestimo=" + idEmprestimo + ", idUsuario=" + idUsuario + ", idLivro=" + idLivro + 
+				" dataEmprestimo=" + dataEmprestimo + " dataDevolucao=" + dataDevolucao +	"]";
+	
+	}
+
+}

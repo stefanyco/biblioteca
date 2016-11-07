@@ -1,0 +1,7 @@
+package biblioteca.entities;
+
+public class Editora {
+	
+	private Integer id_editora;
+
+}

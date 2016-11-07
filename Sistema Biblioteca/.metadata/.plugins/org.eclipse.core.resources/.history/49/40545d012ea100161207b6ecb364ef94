@@ -1,0 +1,16 @@
+package biblioteca.tests;
+
+import biblioteca.dao.EditoraDAO;
+import biblioteca.entities.Editora;
+
+public class EditoraTest {
+
+	public static void main(String[] args) throws Exception {
+		Editora ed = new Editora();
+		ed.setNome("TESTE 02 UPDATE");
+		
+		EditoraDAO dao = new EditoraDAO();
+		dao.alterar(ed);
+	}
+
+}

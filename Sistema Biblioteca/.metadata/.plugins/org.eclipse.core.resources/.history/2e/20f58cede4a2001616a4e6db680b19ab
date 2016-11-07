@@ -1,0 +1,17 @@
+package biblioteca.entities;
+
+import java.sql.Date;
+
+public class Emprestimo {
+
+	private Integer idEmprestimo;
+	private Usuario usuario;
+	private Livro livro;
+	private Date dataEmprestimo;
+	private Date dataDevolucao;
+
+	
+	public Emprestimo() {}
+
+	
+}

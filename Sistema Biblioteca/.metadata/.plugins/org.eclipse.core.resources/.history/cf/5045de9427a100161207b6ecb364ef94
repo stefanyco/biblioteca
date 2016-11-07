@@ -1,0 +1,9 @@
+package biblioteca.entities;
+
+public class Autor {
+	
+	private Integer idAutor;
+	private String nome;
+	private String sobrenome;
+
+}

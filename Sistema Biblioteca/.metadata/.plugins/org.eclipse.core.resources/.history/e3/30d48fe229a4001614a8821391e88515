@@ -1,0 +1,17 @@
+package biblioteca.entities;
+
+public class Livro {
+
+	private Integer idLivro;
+	private Editora editora;
+	private Autor autor;
+	private Categoria categoria;
+	private String titulo;
+	private Integer edicao;
+	private Integer ano;
+	private Integer qtd;
+	private String sinopse;
+	
+	public Livro() {}
+
+}
