@@ -1,8 +1,0 @@
-INDEX VERSION 1.3+D:\Faculdade 3º Semestre\Linguagem III\Library Project\Sistema Biblioteca\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-1811251730.index
-1204385438.index
-1274847820.index
-3851736445.index
-3701264650.index
-768575282.index
-2767994313.index

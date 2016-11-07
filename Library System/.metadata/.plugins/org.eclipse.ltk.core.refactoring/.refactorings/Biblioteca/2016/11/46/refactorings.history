@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename local variable &apos;respnse&apos; in &apos;biblioteca.servlets.EditoraServlet.service(...)&apos; to &apos;response&apos;&#x0D;&#x0A;- Original project: &apos;Biblioteca&apos;&#x0D;&#x0A;- Original element: &apos;biblioteca.servlets.EditoraServlet.service(HttpServletRequest, HttpServletResponse).respnse&apos;&#x0D;&#x0A;- Renamed element: &apos;respnse&apos;&#x0D;&#x0A;- Update references to refactored element" description="Rename local variable &apos;respnse&apos;" id="org.eclipse.jdt.ui.rename.local.variable" input="/src&lt;biblioteca.servlets{EditoraServlet.java[EditoraServlet~service~QHttpServletRequest;~QHttpServletResponse;@respnse!681!707!701!707!QHttpServletResponse;!0!true" name="response" references="true" stamp="1478449645069" version="1.0"/>
+</session>

@@ -1,0 +1,39 @@
+package biblioteca.servlets;
+
+import java.io.IOException;
+import java.util.List;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import biblioteca.dao.EditoraDAO;
+import biblioteca.entities.Editora;
+
+/**
+ * Servlet implementation class EditoraServlet
+ */
+@WebServlet("/editora")
+public class EditoraServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+   
+    public EditoraServlet() {}
+    
+    private void serice(HttpServletRequest request, HttpServletResponse response) {
+		
+				String nome = request.getParameter("nome");
+				
+				Editora editora = new Editora(nome);
+				
+				EditoraDAO dao = new EditoraDAO();
+				
+				dao.inserir(editora);
+				request.setAttribute("msg", "Cadastro Efetuado com Sucesso!");
+		
+
+	}
+
+	
+}
