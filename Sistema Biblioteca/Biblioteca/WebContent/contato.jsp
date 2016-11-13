@@ -25,7 +25,7 @@
 					<li class="active"><a href="#">Home</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="../navbar-static-top/">Login</a></li>
+					<li><a href="login.jsp">Login</a></li>
 					<li><a href="contato.jsp">Fale Conosco</a></li>
 				</ul>
 			</div>

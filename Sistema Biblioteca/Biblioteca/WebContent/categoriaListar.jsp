@@ -11,16 +11,22 @@
 <title>*** Categorias ***</title>
 </head>
 <body>
+	<jsp:include page="cabecalhoMenu.jsp" />
 	<div class="container">
 		<div class="row">
 			<div class="page-header">
 				<h1>
 					<small>Categorias</small>
+					<br/>
+					<a href="categoriaAdicionar.jsp" class="btn btn-default">Nova Categoria</a>
 				</h1>
 			</div>
 			<div class="col-xs-12">
 				<div class="table-responsive">
-				<a href="categoriaAdicionar.jsp" class="btn btn-primary btn-lg">Nova Categoria</a>
+					<%
+						String msg = (String) request.getAttribute("msg");
+					%>
+					<%= msg != null ? msg : "" %>
 					<table
 						class="table table-bordered table-striped table-hover table-condensed">
 						<thead>
@@ -52,8 +58,10 @@
 							}
 						%>
 					</table>
+					<br/>
 				</div>
 			</div>
 		</div>
+	</div>
 </body>
 </html>

@@ -11,17 +11,19 @@
 <title>*** Autores ***</title>
 </head>
 <body>
+	<jsp:include page="cabecalhoMenu.jsp" />
 	<div class="container">
 		<div class="row">
 			<div class="page-header">
 				<h1>
 					<small>Autores</small>
+					<br/>
+					<a href="autorAdicionar.jsp" class="btn btn-default">Novo Autor</a>
 				</h1>
 			</div>
 			<div class="col-xs-12">
 				<div class="table-responsive">
-				<a href="autorAdicionar.jsp" class="btn btn-primary btn-lg">Novo Autor</a>
-					<table
+				<table
 						class="table table-bordered table-striped table-hover table-condensed">
 						<thead>
 							<tr style="color: white" bgcolor="SteelBlue" align="center">

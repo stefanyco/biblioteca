@@ -23,6 +23,7 @@ public class CategoriaServlet extends HttpServlet {
     
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	
     	String acao = request.getParameter("acao");
 		String proxPage = "home.jsp";
 		
@@ -34,8 +35,8 @@ public class CategoriaServlet extends HttpServlet {
 				
 				Categoria categoria = new Categoria(nome);
 				dao.inserir(categoria);
-				request.setAttribute("msg", "Cadastro Efetuado com Sucesso!");
-				proxPage = "categoria?acao=listar";
+				request.setAttribute("msg", "Cadastrado com Sucesso!");
+				proxPage = "categoriaListar.jsp";
 			}else if (acao.equals("listar")) {
 				List<Categoria> lista = dao.listarTodos();
 				request.setAttribute("listaCategorias", lista);
@@ -45,6 +46,7 @@ public class CategoriaServlet extends HttpServlet {
 				String id = request.getParameter("id");
 				
 				dao.deletar(Integer.parseInt(id));
+				request.setAttribute("msg", "Removido com Sucesso!");
 				proxPage = "categoriaListar.jsp";
 			}else if (acao.equals("editar")) {
 				String id = request.getParameter("id");
@@ -60,6 +62,7 @@ public class CategoriaServlet extends HttpServlet {
 				
 				Categoria categoria = new Categoria(Integer.parseInt(id), nome);
 				dao.alterar(categoria);
+				request.setAttribute("msg", "Alterado com Sucesso!");
 				proxPage = "categoria?acao=listar";
 			}
 		} catch (Exception e) {
@@ -68,5 +71,6 @@ public class CategoriaServlet extends HttpServlet {
 		request.getRequestDispatcher(proxPage).forward(request, response);
 
     }
+
   
 }

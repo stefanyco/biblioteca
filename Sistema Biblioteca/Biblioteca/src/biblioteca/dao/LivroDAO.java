@@ -25,7 +25,7 @@ public class LivroDAO implements GenericDAO<Livro> {
 		try 
 		{
 			String sql = "INSERT INTO TB_LIVRO " + "(ID_EDITORA, ID_AUTOR, ID_CATEGORIA,"
-					+ "TITULO, EDICAO, ANO, QTD, SINOPSE) " + " VALUES (?,?,?,?,?,?,?,?)";
+					+ "TITULO, EDICAO, ANO, QTD, TIPO, ESPECIAL, SINOPSE) " + " VALUES (?,?,?,?,?,?,?,?,?,?)";
 			
 			
 			PreparedStatement statement = connection.prepareStatement(sql);
@@ -36,7 +36,10 @@ public class LivroDAO implements GenericDAO<Livro> {
 			statement.setInt(5, livro.getEdicao());
 			statement.setInt(6, livro.getAno());
 			statement.setInt(7, livro.getQtd());
-			statement.setString(8, livro.getSinopse());
+			statement.setString(8, livro.getTipo());
+			statement.setString(9, livro.getEspecial());
+			
+			statement.setString(10, livro.getSinopse());
 			
 			
 			statement.execute();
@@ -52,7 +55,8 @@ public class LivroDAO implements GenericDAO<Livro> {
 		try 
 		{
 			String sql = "UPDATE  TB_LIVRO "
-					+ " SET ID_EDITORA=?, ID_AUTOR=?, ID_CATEGORIA=?, TITULO=?, EDICAO=?, ANO=?, QTD=?, SINOPSE=? "
+					+ " SET ID_EDITORA=?, ID_AUTOR=?, ID_CATEGORIA=?, TITULO=?, EDICAO=?, ANO=?, QTD=?, SINOPSE=?, "
+					+ " TIPO=?, ESPECIAL=? "
 					+ " WHERE ID_LIVRO = ? ";
 			
 			PreparedStatement statement = connection.prepareStatement(sql);
@@ -64,7 +68,9 @@ public class LivroDAO implements GenericDAO<Livro> {
 			statement.setInt(6, livro.getAno());
 			statement.setInt(7, livro.getQtd());
 			statement.setString(8, livro.getSinopse());
-			statement.setInt(9, livro.getIdLivro());
+			statement.setString(9, livro.getTipo());
+			statement.setString(10, livro.getEspecial());
+			statement.setInt(11, livro.getIdLivro());
 			
 			statement.execute();
 			statement.close();
@@ -116,7 +122,8 @@ public class LivroDAO implements GenericDAO<Livro> {
 				livro.setAno(resultSet.getInt("ANO"));
 				livro.setQtd(resultSet.getInt("QTD"));
 				livro.setSinopse(resultSet.getString("SINOPSE"));
-				
+				livro.setTipo(resultSet.getString("TIPO"));
+				livro.setEspecial(resultSet.getString("ESPECIAL"));
 						
 				listaLivros.add(livro);
 				
@@ -158,6 +165,8 @@ public class LivroDAO implements GenericDAO<Livro> {
 				livro.setAno(resultSet.getInt("ANO"));
 				livro.setQtd(resultSet.getInt("QTD"));
 				livro.setSinopse(resultSet.getString("SINOPSE"));
+				livro.setTipo(resultSet.getString("TIPO"));
+				livro.setEspecial(resultSet.getString("ESPECIAL"));
 			}
 			
 			statement.execute();
@@ -196,6 +205,8 @@ public class LivroDAO implements GenericDAO<Livro> {
 				livro.setAno(resultSet.getInt("ANO"));
 				livro.setQtd(resultSet.getInt("QTD"));
 				livro.setSinopse(resultSet.getString("SINOPSE"));
+				livro.setTipo(resultSet.getString("TIPO"));
+				livro.setEspecial(resultSet.getString("ESPECIAL"));
 				
 				listaLivros.add(livro);
 				

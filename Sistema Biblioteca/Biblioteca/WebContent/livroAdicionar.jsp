@@ -47,6 +47,26 @@
 						</div>
 					</div>
 					<div class="form-group">
+						<label for="tipo" class="col-xs-2 control-label">Tipo:</label>
+							<div class="col-xs-2">
+								<select class="form-control" name="tipo" required>
+									<option></option>
+									<option value="Livro">Livro</option>
+									<option value="Revista">Revista</option>
+								</select>
+							</div>
+					</div>
+					<div class="form-group">
+						<label for="especial" class="col-xs-2 control-label">Especial:</label>
+							<div class="col-xs-2">
+								<select class="form-control" name="especial" required>
+									<option></option>
+									<option value="Sim">Sim</option>
+									<option value="Nao">Não</option>
+								</select>
+							</div>
+					</div>
+					<div class="form-group">
 							<label for="categoria" class="col-xs-2 control-label">Categoria:</label>
 							<div class="col-xs-5">
 								<select class="form-control" name="idCategoria">
@@ -57,7 +77,7 @@
 
 										for (Categoria categoria : categorias) {
 									%>
-									<option value="<%=categoria.getNome()%>">
+									<option value="<%=categoria.getIdCategoria()%>">
 										<%=categoria.getNome()%>
 									</option>
 
@@ -77,7 +97,7 @@
 										List<Editora> editoras = editoraDAO.listarTodos();
 										for (Editora editora : editoras){
 									%>
-										<option value="<%=editora.getNome()%>">
+										<option value="<%=editora.getIdEditora()%>">
 											<%=editora.getNome()%>
 										</option>
 									

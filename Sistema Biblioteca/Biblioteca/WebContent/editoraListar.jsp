@@ -11,16 +11,19 @@
 <title>*** Editoras ***</title>
 </head>
 <body>
+	<jsp:include page="cabecalhoMenu.jsp" />
 	<div class="container">
 		<div class="row">
 			<div class="page-header">
 				<h1>
 					<small>Editoras</small>
+					<br/>
+					<a href="editoraAdicionar.jsp" class="btn btn-default">Nova Editora</a>
 				</h1>
 			</div>
 			<div class="col-xs-12">
 				<div class="table-responsive">
-				<a href="editoraAdicionar.jsp" class="btn btn-primary btn-lg">Nova Editora</a>
+				
 					<table
 						class="table table-bordered table-striped table-hover table-condensed">
 						<thead>

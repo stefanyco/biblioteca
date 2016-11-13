@@ -17,9 +17,10 @@ public class Livro {
 
 	public Livro() {}
 	
-	public Livro(Integer idLivro, Editora editora, Autor autor, Categoria categoria, String titulo, Integer edicao,
-			Integer ano, Integer qtd, String sinopse) {
+	
 
+	public Livro(Integer idLivro, Editora editora, Autor autor, Categoria categoria, String titulo, Integer edicao,
+			Integer ano, Integer qtd, String sinopse, String tipo, String especial) {
 		this.idLivro = idLivro;
 		this.editora = editora;
 		this.autor = autor;
@@ -29,6 +30,8 @@ public class Livro {
 		this.ano = ano;
 		this.qtd = qtd;
 		this.sinopse = sinopse;
+		this.tipo = tipo;
+		this.especial = especial;
 	}
 
 	public Integer getIdLivro() {
@@ -123,6 +126,7 @@ public class Livro {
 	public String toString() {
 		return "Livro [idLivro=" + idLivro + ", editora=" + editora + ", autor=" + autor + ", categoria=" + categoria
 				+ ", titulo=" + titulo + ", edicao=" + edicao + ", ano=" + ano + ", qtd=" + qtd + ", sinopse=" + sinopse
-				+ "]";
+				+ ", tipo=" + tipo + ", especial=" + especial + "]";
 	}
+
 }

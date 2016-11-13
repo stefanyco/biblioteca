@@ -1,0 +1,44 @@
+package biblioteca.servlets;
+
+import java.io.IOException;
+import java.util.List;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import biblioteca.dao.CategoriaDAO;
+import biblioteca.entities.Categoria;
+
+/**
+ * Servlet implementation class CategoriaServlet
+ */
+@WebServlet("/addCategoria")
+public class CategoriaServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+   
+    public CategoriaServlet() {}
+    
+    @Override
+    protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	
+		try 
+		{
+			CategoriaDAO dao = new CategoriaDAO();
+			
+				String nome = request.getParameter("nome");
+				
+				Categoria categoria = new Categoria(nome);
+				dao.inserir(categoria);
+				request.setAttribute("msg", "Cadastro Efetuado com Sucesso!");
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		request.getRequestDispatcher("categoriaListar.jsp").forward(request, response);
+
+    }
+  
+}

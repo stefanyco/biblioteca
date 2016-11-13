@@ -7,14 +7,19 @@
 <fullyQualifiedTypeName name="com.mysql.jdbc.Statement"/>
 <fullyQualifiedTypeName name="java.sql.ResultSet"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
-<fullyQualifiedTypeName name="biblioteca.dao.AutorDAO"/>
-<fullyQualifiedTypeName name="biblioteca.dao.CategoriaDAO"/>
 <fullyQualifiedTypeName name="biblioteca.dao.UsuarioDAO"/>
-<fullyQualifiedTypeName name="biblioteca.dao.LivroDAO"/>
 <fullyQualifiedTypeName name="javax.servlet.http.HttpServlet"/>
 <fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
 <fullyQualifiedTypeName name="javax.servlet.http.HttpServletResponse"/>
-<fullyQualifiedTypeName name="biblioteca.dao.EditoraDAO"/>
 <fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="biblioteca.entities.Livro"/>
+<fullyQualifiedTypeName name="biblioteca.entities.Categoria"/>
+<fullyQualifiedTypeName name="biblioteca.entities.Autor"/>
 <fullyQualifiedTypeName name="biblioteca.entities.Editora"/>
+<fullyQualifiedTypeName name="biblioteca.dao.LivroDAO"/>
+<fullyQualifiedTypeName name="java.lang.Integer"/>
+<fullyQualifiedTypeName name="biblioteca.dao.CategoriaDAO"/>
+<fullyQualifiedTypeName name="biblioteca.dao.AutorDAO"/>
+<fullyQualifiedTypeName name="biblioteca.dao.EditoraDAO"/>
 </qualifiedTypeNameHistroy>
