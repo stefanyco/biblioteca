@@ -9,13 +9,12 @@ public class Usuario {
 	private String tpUsuario;
 	private String senha;
 	private String email;
-	private Boolean ativo;
 	private Integer qtdLivros;
 	
 	public Usuario() {}
 	
 	public Usuario(Integer idUsuario, Integer ra, String cpf, String nome, String tpUsuario, String senha, String email,
-			Boolean ativo, Integer qtdLivros) {
+			Integer qtdLivros) {
 		this.idUsuario = idUsuario;
 		this.ra = ra;
 		this.cpf = cpf;
@@ -23,7 +22,6 @@ public class Usuario {
 		this.tpUsuario = tpUsuario;
 		this.senha = senha;
 		this.email = email;
-		this.ativo = ativo;
 		this.qtdLivros = qtdLivros;
 	}
 	public Integer getIdUsuario() {
@@ -68,12 +66,7 @@ public class Usuario {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public Boolean getAtivo() {
-		return ativo;
-	}
-	public void setAtivo(Boolean ativo) {
-		this.ativo = ativo;
-	}
+
 	public Integer getQtdLivros() {
 		return qtdLivros;
 	}
@@ -83,7 +76,7 @@ public class Usuario {
 	@Override
 	public String toString() {
 		return "Usuario [idUsuario=" + idUsuario + ", ra=" + ra + ", cpf=" + cpf + ", nome=" + nome + ", tpUsuario="
-				+ tpUsuario + ", senha=" + senha + ", email=" + email + ", ativo=" + ativo + ", qtdLivros=" + qtdLivros
+				+ tpUsuario + ", senha=" + senha + ", email=" + email + ", qtdLivros=" + qtdLivros
 				+ "]";
 	}
 

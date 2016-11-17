@@ -1,0 +1,71 @@
+<%@page import="biblioteca.dao.CategoriaDAO"%>
+<%@page import="biblioteca.entities.Categoria"%>
+<%@page import="java.util.List"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link href="bootstrap.min.css" rel="stylesheet">
+<title>*** Usuarios ***</title>
+</head>
+<body>
+	<jsp:include page="cabecalhoMenu.jsp" />
+	<div class="container">
+		<div class="row">
+			<div class="page-header">
+				<h1>
+					<small>Usuarios</small>
+					<br/>
+					<a href="usuarioAdicionar.jsp" class="btn btn-default">Novo Usuario</a>
+				</h1>
+			</div>
+			<div class="col-xs-12">
+				<div class="table-responsive">
+					<%
+						String msg = (String) request.getAttribute("msg");
+					%>
+					<%= msg != null ? msg : "" %>
+					<table
+						class="table table-bordered table-striped table-hover table-condensed">
+						<thead>
+							<tr style="color: white" bgcolor="SteelBlue" align="center">
+								<td>Código</td>
+								<td>Nome</td>
+								<td>CPF</td>
+								<td>Tipo de Usuário</td>
+								<td colspan="2">Ações</td>
+							</tr>
+						</thead>
+						<%
+							UsuarioDAO dao = new UsuarioDAO();
+							List<Usuario> usuarios = dao.listarTodos();
+							
+							for (Usuario usuario: usuario){
+								
+							
+						%>
+						<tbody>
+							<tr>
+								<td align="center"><%=usuario.getIdUsuario() %></td>
+								<td><%=usuario.getNome() %></td>
+								<td><%=usuario.getCpf() %></td>
+								<td><%=usuario.getTpUsuario() %></td>
+								<td><a href="usuario?acao=editar&id=<%=usuario.getIdUsuario() %>">Alterar</a></td>
+								<td>
+									<a href="usuario?acao=remover&id=<%=usuario.getIdUsuario() %>">Remover</a>
+								</td>
+							</tr>
+						</tbody>
+						<%
+							}
+						%>
+					</table>
+					<br/>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

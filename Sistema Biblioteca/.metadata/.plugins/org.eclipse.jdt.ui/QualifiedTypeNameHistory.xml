@@ -18,8 +18,8 @@
 <fullyQualifiedTypeName name="biblioteca.entities.Autor"/>
 <fullyQualifiedTypeName name="biblioteca.entities.Editora"/>
 <fullyQualifiedTypeName name="biblioteca.dao.LivroDAO"/>
-<fullyQualifiedTypeName name="java.lang.Integer"/>
 <fullyQualifiedTypeName name="biblioteca.dao.CategoriaDAO"/>
 <fullyQualifiedTypeName name="biblioteca.dao.AutorDAO"/>
 <fullyQualifiedTypeName name="biblioteca.dao.EditoraDAO"/>
+<fullyQualifiedTypeName name="java.lang.Integer"/>
 </qualifiedTypeNameHistroy>

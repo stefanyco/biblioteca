@@ -21,8 +21,8 @@ public class UsuarioDAO implements GenericDAO<Usuario>{
 	public void inserir(Usuario usuario) {
 		try 
 		{
-			String sql = "INSERT INTO TB_USUARIO " + "(RA, CPF, NOME, TIPO_USUARIO,EMAIL,ATIVO, QTD_LIVROS, SENHA)" + 
-					"VALUES (?,?,?,?,?,?,?,?)";
+			String sql = "INSERT INTO TB_USUARIO " + "(RA, CPF, NOME, TIPO_USUARIO,EMAIL,QTD_LIVROS, SENHA)" + 
+					"VALUES (?,?,?,?,?,?,?)";
 			
 			PreparedStatement statement = connection.prepareStatement(sql);
 			statement.setInt(1, usuario.getRa());
@@ -30,9 +30,8 @@ public class UsuarioDAO implements GenericDAO<Usuario>{
 			statement.setString(3, usuario.getNome());
 			statement.setString(4, usuario.getTpUsuario());
 			statement.setString(5, usuario.getEmail());
-			statement.setBoolean(6, usuario.getAtivo());
-			statement.setInt(7, usuario.getQtdLivros());
-			statement.setString(8, usuario.getSenha());			
+			statement.setInt(6, usuario.getQtdLivros());
+			statement.setString(7, usuario.getSenha());			
 			
 			statement.execute();
 			statement.close();
@@ -49,7 +48,7 @@ public class UsuarioDAO implements GenericDAO<Usuario>{
 		try 
 		{
 		
-		    String sql = "UPDATE TB_USUARIO SET RA=?, CPF=?, NOME=?, TIPO_USUARIO=?, EMAIL=?, ATIVO=?, "
+		    String sql = "UPDATE TB_USUARIO SET RA=?, CPF=?, NOME=?, TIPO_USUARIO=?, EMAIL=?, "
 		    		+ "QTD_LIVROS=?, SENHA=? WHERE ID_USUARIO = ?";
 		    
 			
@@ -59,10 +58,9 @@ public class UsuarioDAO implements GenericDAO<Usuario>{
 			statement.setString(3, usuario.getNome());
 			statement.setString(4, usuario.getTpUsuario());
 			statement.setString(5, usuario.getEmail());
-			statement.setBoolean(6, usuario.getAtivo());
-			statement.setInt(7, usuario.getQtdLivros());
-			statement.setString(8, usuario.getSenha());		
-			statement.setInt(9, usuario.getIdUsuario());	
+			statement.setInt(6, usuario.getQtdLivros());
+			statement.setString(7, usuario.getSenha());		
+			statement.setInt(8, usuario.getIdUsuario());	
 			
 			statement.execute();
 			statement.close();
@@ -112,7 +110,6 @@ public class UsuarioDAO implements GenericDAO<Usuario>{
 				user.setNome(resultSet.getString("NOME"));
 				user.setTpUsuario(resultSet.getString("TIPO_USUARIO"));
 				user.setEmail(resultSet.getString("EMAIL"));
-				user.setAtivo(resultSet.getBoolean("ATIVO"));
 				user.setQtdLivros(resultSet.getInt("QTD_LIVROS"));
 				user.setSenha(resultSet.getString("SENHA"));
 		
@@ -154,7 +151,6 @@ public class UsuarioDAO implements GenericDAO<Usuario>{
 				user.setNome(resultSet.getString("NOME"));
 				user.setTpUsuario(resultSet.getString("TIPO_USUARIO"));
 				user.setEmail(resultSet.getString("EMAIL"));
-				user.setAtivo(resultSet.getBoolean("ATIVO"));
 				user.setQtdLivros(resultSet.getInt("QTD_LIVROS"));
 			}
 			
@@ -192,7 +188,6 @@ public class UsuarioDAO implements GenericDAO<Usuario>{
 				user.setNome(resultSet.getString("NOME"));
 				user.setTpUsuario(resultSet.getString("TIPO_USUARIO"));
 				user.setEmail(resultSet.getString("EMAIL"));
-				user.setAtivo(resultSet.getBoolean("ATIVO"));
 				user.setQtdLivros(resultSet.getInt("QTD_LIVROS"));
 				
 				listaUsuarios.add(user);

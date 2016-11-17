@@ -59,7 +59,7 @@
 					<div class="form-group">
 						<label for="nome" class="col-xs-2 control-label">Password:</label>
 						<div class="col-xs-2">
-							<input type="password" class="form-control" name="nome" required maxlength="50">
+							<input type="password" class="form-control" name="senha" required maxlength="50">
 						</div>
 					</div>
 					<div class="form-group">

@@ -58,7 +58,6 @@ public class UsuarioTest {
 		user1.setNome("Marta Silva dos Anjos");
 		user1.setTpUsuario("Aluno");
 		user1.setEmail("aluno@fit.com.br");
-		user1.setAtivo(true);
 		user1.setQtdLivros(1);
 		user1.setSenha("Segred@");
 	
@@ -78,7 +77,6 @@ public class UsuarioTest {
 					System.out.println(usuario.getNome());
 					System.out.println(usuario.getTpUsuario());
 					System.out.println(usuario.getEmail());
-					System.out.println(usuario.getAtivo());
 					System.out.println(usuario.getQtdLivros());
 					System.out.println(usuario.getSenha());
 					System.out.println("=============================");

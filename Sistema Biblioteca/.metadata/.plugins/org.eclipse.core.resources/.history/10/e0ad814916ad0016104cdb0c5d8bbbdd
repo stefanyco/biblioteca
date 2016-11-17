@@ -1,0 +1,211 @@
+package biblioteca.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+import biblioteca.config.Factory;
+import biblioteca.entities.Usuario;
+
+public class UsuarioDAO implements GenericDAO<Usuario>{
+	
+	Connection connection;
+	
+	public UsuarioDAO() throws Exception {
+		this.connection = new Factory().getConnection();
+	}
+
+
+	@Override
+	public void inserir(Usuario usuario) {
+		try 
+		{
+			String sql = "INSERT INTO TB_USUARIO " + "(RA, CPF, NOME, TIPO_USUARIO,EMAIL,QTD_LIVROS, SENHA)" + 
+					"VALUES (?,?,?,?,?,?,?)";
+			
+			PreparedStatement statement = connection.prepareStatement(sql);
+			statement.setInt(1, usuario.getRa());
+			statement.setString(2, usuario.getCpf());
+			statement.setString(3, usuario.getNome());
+			statement.setString(4, usuario.getTpUsuario());
+			statement.setString(5, usuario.getEmail());
+			statement.setInt(6, usuario.getQtdLivros());
+			statement.setString(7, usuario.getSenha());			
+			
+			statement.execute();
+			statement.close();
+		} 
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+		
+	
+
+	@Override
+	public void alterar(Usuario usuario) {
+		try 
+		{
+		
+		    String sql = "UPDATE TB_USUARIO SET RA=?, CPF=?, NOME=?, TIPO_USUARIO=?, EMAIL=?,"
+		    		+ "QTD_LIVROS=?, SENHA=? WHERE ID_USUARIO = ?";
+		    
+			
+			PreparedStatement statement = connection.prepareStatement(sql);
+			statement.setInt(1, usuario.getRa());
+			statement.setString(2, usuario.getCpf());
+			statement.setString(3, usuario.getNome());
+			statement.setString(4, usuario.getTpUsuario());
+			statement.setString(5, usuario.getEmail());
+			statement.setInt(6, usuario.getQtdLivros());
+			statement.setString(7, usuario.getSenha());		
+			statement.setInt(8, usuario.getIdUsuario());	
+			
+			statement.execute();
+			statement.close();
+		} 
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+
+	@Override
+	public void deletar(Integer id) {
+		try 
+		{
+			String sql = "DELETE FROM  TB_USUARIO "
+					+ " WHERE ID_USUARIO = ?";
+			
+			PreparedStatement statement = connection.prepareStatement(sql);
+			statement.setInt(1, id);
+			
+			statement.execute();
+			statement.close();
+		} 
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+
+	@Override
+	public List<Usuario> listarTodos() {
+		List<Usuario> listaUsuarios = new ArrayList<Usuario>();
+		
+		try 
+		{
+			String sql = "SELECT * FROM TB_USUARIO";
+			
+			PreparedStatement statement = connection.prepareStatement(sql);
+			ResultSet resultSet = statement.executeQuery();
+			
+			while (resultSet.next()) {
+				Usuario user = new Usuario();
+				
+				user.setIdUsuario(resultSet.getInt("ID_USUARIO"));
+				user.setRa(resultSet.getInt("RA"));
+				user.setCpf(resultSet.getString("CPF"));
+				user.setNome(resultSet.getString("NOME"));
+				user.setTpUsuario(resultSet.getString("TIPO_USUARIO"));
+				user.setEmail(resultSet.getString("EMAIL"));
+				user.setQtdLivros(resultSet.getInt("QTD_LIVROS"));
+				user.setSenha(resultSet.getString("SENHA"));
+		
+				listaUsuarios.add(user);
+				
+			}
+			
+			resultSet.close();
+			statement.close();
+				
+		} 
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		return listaUsuarios;
+	}
+
+
+	@Override
+	public Usuario buscarPorId(Integer id) {
+		Usuario user = null;
+		
+		try 
+		{
+			String sql = "SELECT * FROM TB_USUARIO "
+					+ " WHERE ID_USUARIO = ?";
+			
+			PreparedStatement statement = connection.prepareStatement(sql);
+			statement.setInt(1, id);
+			
+			ResultSet resultSet = statement.executeQuery();
+			
+			if (resultSet.next()) {
+				user = new Usuario();
+				
+				user.setIdUsuario(resultSet.getInt("ID_USUARIO"));
+				user.setRa(resultSet.getInt("RA"));
+				user.setCpf(resultSet.getString("CPF"));
+				user.setNome(resultSet.getString("NOME"));
+				user.setTpUsuario(resultSet.getString("TIPO_USUARIO"));
+				user.setEmail(resultSet.getString("EMAIL"));
+				user.setQtdLivros(resultSet.getInt("QTD_LIVROS"));
+			}
+			
+			statement.execute();
+			statement.close();
+			resultSet.close();
+		} 
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return user;
+	}
+
+	@Override
+	public List<Usuario> buscaLike(String param) {
+		List<Usuario> listaUsuarios = new ArrayList<Usuario>();
+		
+		try 
+		{
+			String sql = "SELECT * FROM TB_USUARIO "
+					+ " WHERE CPF LIKE ?%";
+			
+			PreparedStatement statement = connection.prepareStatement(sql);
+			statement.setString(1, param);
+			
+			ResultSet resultSet = statement.executeQuery();
+			
+			while (resultSet.next()) {
+				Usuario user = new Usuario();
+				
+				user.setIdUsuario(resultSet.getInt("ID_USUARIO"));
+				user.setRa(resultSet.getInt("RA"));
+				user.setCpf(resultSet.getString("CPF"));
+				user.setNome(resultSet.getString("NOME"));
+				user.setTpUsuario(resultSet.getString("TIPO_USUARIO"));
+				user.setEmail(resultSet.getString("EMAIL"));
+				user.setQtdLivros(resultSet.getInt("QTD_LIVROS"));
+				
+				listaUsuarios.add(user);
+				
+			}
+			
+			resultSet.close();
+			statement.close();
+				
+		} 
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		return listaUsuarios;
+	}
+
+	
+
+
+	
+}
