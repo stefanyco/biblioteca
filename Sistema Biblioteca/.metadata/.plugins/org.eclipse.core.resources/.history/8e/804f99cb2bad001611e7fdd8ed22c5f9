@@ -22,7 +22,7 @@
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="login.jsp">Login</a></li>
-					<li><a href="contato.jsp">Contato</a></li>
+					<li><a href="contato.jsp">Fale Conosco</a></li>
 				</ul>
 			</div>
 			<!--/.nav-collapse -->
@@ -38,6 +38,20 @@
 
 		<!-- /container -->
 
+		<div class="col-md-3">
+			<input type="text" class="form-control" placeholder="Por Categoria"> </br>
+			<input type="text" class="form-control"  placeholder="Por Titulo"> </br> 
+			<input type="text" class="form-control" placeholder="Por Autor"> </br>
+			<input type="text" class="form-control" placeholder="Por Editora"> </br>
+			<button type="submit" class="btn btn-primary form-control">Buscar</button>
+		</div>
+
+		<div class="col-md-9">
+
+			<!-- Livros -->
+			<div class="alert alert-success">Livros</div>
+
+		</div>
 	</div>
 
 </body>
